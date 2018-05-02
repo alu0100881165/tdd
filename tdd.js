@@ -3,22 +3,28 @@ var assert = require('assert');
 function Raices(a, b, c)
 {
   var Operacion = b * b - 4 * a * c;
+  var Raiz_oper;
+  var Real1;
+  var Real2;
+  var Imag1;
+  var Imag2;
+  var dos_a = 2 * a;
 
   if(Operacion > 0)
   {
-    var Raiz_oper = Math.sqrt(Operacion);
-    var Real1 = (-b + Raiz_oper) / (2 * a);
-    var Real2 = (-b - Raiz_oper) / (2 * a);
-    var Imag1 = 0;
-    var Imag2 = 0;
+    Raiz_oper = Math.sqrt(Operacion);
+    Real1 = (-b + Raiz_oper) / dos_a;
+    Real2 = (-b - Raiz_oper) / dos_a;
+    Imag1 = 0;
+    Imag2 = 0;
   }
   else
   {
-    var Raiz_oper = Math.sqrt(-Operacion);
-    var Real1 = 0;
-    var Real2 = -0;
-    var Imag1 = (-b + Raiz_oper) / (2 * a);
-    var Imag2 = (-b - Raiz_oper) / (2 * a);
+    Raiz_oper = Math.sqrt(-Operacion);
+    Real1 = -b / dos_a;
+    Real2 = -b / dos_a;
+    Imag1 = Raiz_oper / dos_a;
+    Imag2 = -Raiz_oper / dos_a;
   }
 
   return [[Real1,Imag1],[Real2,Imag2]];
